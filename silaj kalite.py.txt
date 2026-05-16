@@ -1,0 +1,42 @@
+import streamlit as st
+
+# Uygulama Başlığı
+st.title("Silaj Kalitesi")
+
+# --- GİRDİ BÖLÜMÜ (Excel'deki boş hücreleriniz) ---
+st.header("Dondurulması Gereken Bilgiler")
+
+# Excel'deki A1 hücresi gibi düşünün
+% Kuru Madde = st.number_input(B14)
+p.H = st.number_input(B15)
+Renk= st.number_input(B16)
+Koku-Tat= st.number_input(B17)
+Sktrüktür= st.number_input(B18)
+Toplam Asetik Asit= st.number_input(B19)
+Toplam Bütirik Asit= st.number_input(B20)
+Königsberg Testi Kalite Sonucu= st.number_input(C21)
+Fleig Testi Kalite Sonucu= st.number_input(C22)
+
+import streamlit as st
+
+# A15 = st.number_input("(B15):", min_value=0, value=18)
+
+# Excel'deki EĞER mantığı başlıyor:
+if yas >= 18:
+    sonuc_metni = "Ehliyet Alabilir"
+else:
+    sonuc_metni = "Ehliyet Alamaz"
+
+# Sonucu ekranda gösteriyoruz
+st.info(f"Durum (B1): {sonuc_metni}")
+
+
+
+# --- HESAPLAMA BÖLÜMÜ (Excel'deki gizli formülleriniz) ---
+# Örneğin Excel'de: = (A1 * B1) / 100 gibi bir formülünüz varsa:
+sonuc = (parametre1 * parametre2) / 100
+
+# --- ÇIKTI BÖLÜMÜ (Excel'deki sonuç hücresi) ---
+st.divider()
+st.header("Hesaplama Sonucu")
+st.success(f"İşlem Sonucu: {sonuc}")
